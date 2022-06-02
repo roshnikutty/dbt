@@ -1,0 +1,53 @@
+
+version: 2
+
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: snowflake_customer_purchases
+    description: "aggregate of customer purchases"
+    columns:
+      - name: c_custkey
+        description: "unique non null customer key"
+        tests:
+          - unique
+          - not_null
+      - name: c_name
+        description: "unique non null customer name"
+        tests:
+          - unique
+          - not_null
+      - name: c_nationkey
+        description: "unique non null customer nation key"
+        tests:
+          - unique
+          - not_null
+
+  - name: cumulative_orders_by_date
+    description: "cumulative of total price"
+    columns:
+      - name: day
+        description: "days"
+        tests:
+          - not_null
+      - name: sum
+        description: "cumulative of price"
+        tests:
+          - not_null
+      - name: dates
